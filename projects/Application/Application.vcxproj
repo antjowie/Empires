@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{ab962dc0-3411-484d-be48-3466235c2a39}</ProjectGuid>
+    <Keyword>Linux</Keyword>
+    <RootNamespace>Empires</RootNamespace>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <ApplicationType>Linux</ApplicationType>
+    <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
+    <TargetLinuxPlatform>Generic</TargetLinuxPlatform>
+    <LinuxProjectType>{2238F9CD-F817-4ECC-BD14-2524D2669B35}</LinuxProjectType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <RemoteRootDir>~/projects/$(SolutionName)</RemoteRootDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <RemoteRootDir>~/projects/$(SolutionName)</RemoteRootDir>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <MultiProcNumber>4</MultiProcNumber>
+    <RemoteLinkLocalCopyOutput>false</RemoteLinkLocalCopyOutput>
+    <AdditionalSourcesToCopyMapping>
+    </AdditionalSourcesToCopyMapping>
+    <SourcesToCopyRemotelyOverride>@(SourcesToCopyRemotely);@(DataFilesToCopyRemotely);</SourcesToCopyRemotelyOverride>
+    <LibraryPath>
+    </LibraryPath>
+    <RemoteProjectDir>$(RemoteRootDir)/$(ProjectName)</RemoteProjectDir>
+    <IncludePath>$(SolutionDir)projects\Framework\include;$(ProjectDir)include;/opt/vc/include;/opt/vc/include/interface;/opt/vc/include/interface/vcos/pthreads;/opt/vc/include/interface/vmcs_host/linux;/home/pi;/usr/include;/usr/include/freetype2;%(AdditionalIncludeDirectories)</IncludePath>
+    <RemotePostBuildEventUseInBuild>true</RemotePostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <IntDir>$(ProjectDir)bin\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <MultiProcNumber>4</MultiProcNumber>
+    <RemoteLinkLocalCopyOutput>false</RemoteLinkLocalCopyOutput>
+    <AdditionalSourcesToCopyMapping>
+    </AdditionalSourcesToCopyMapping>
+    <SourcesToCopyRemotelyOverride>@(SourcesToCopyRemotely);@(DataFilesToCopyRemotely);</SourcesToCopyRemotelyOverride>
+    <LibraryPath>
+    </LibraryPath>
+    <RemoteProjectDir>$(RemoteRootDir)/$(ProjectName)</RemoteProjectDir>
+    <IncludePath>$(SolutionDir)projects\Framework\include;$(ProjectDir)include;/opt/vc/include;/opt/vc/include/interface;/opt/vc/include/interface/vcos/pthreads;/opt/vc/include/interface/vmcs_host/linux;/home/pi;/usr/include;/usr/include/freetype2;%(AdditionalIncludeDirectories)</IncludePath>
+    <RemotePostBuildEventUseInBuild>true</RemotePostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <IntDir>$(ProjectDir)bin\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <ClCompile Include="source\drawables\HUDs\Cursor.cpp" />
+    <ClCompile Include="source\drawables\HUDs\Map.cpp" />
+    <ClCompile Include="source\drawables\HUDs\ShopHUD.cpp" />
+    <ClCompile Include="source\drawables\HUDs\VesselBuildHUD.cpp" />
+    <ClCompile Include="source\drawables\HUDs\VesselHUD.cpp" />
+    <ClCompile Include="source\drawables\Skybox.cpp" />
+    <ClCompile Include="source\drawables\HUDs\HUD.cpp" />
+    <ClCompile Include="source\drawables\Vessels\CarrierVessel.cpp" />
+    <ClCompile Include="source\drawables\Vessels\DiscoveryVessel.cpp" />
+    <ClCompile Include="source\drawables\Vessels\FighterVessel.cpp" />
+    <ClCompile Include="source\drawables\Vessels\SupplyVessel.cpp" />
+    <ClCompile Include="source\Empire.cpp" />
+    <ClCompile Include="source\hitboxes\HUDHitbox.cpp" />
+    <ClCompile Include="source\hitboxes\SphereHitbox.cpp" />
+    <ClCompile Include="source\cameras\FreelookCamera.cpp" />
+    <ClCompile Include="source\cameras\RotateCamera.cpp" />
+    <ClCompile Include="source\drawables\Vessels\Vessel.cpp" />
+    <ClCompile Include="source\GalaxyGenerator.cpp" />
+    <ClCompile Include="source\drawables\Planet.cpp" />
+    <ClCompile Include="source\PlanetRenderer.cpp" />
+    <ClCompile Include="source\scenes\PlaygroundScene.cpp" />
+    <ClCompile Include="source\scenes\TSPScene.cpp" />
+    <ClCompile Include="source\Source.cpp" />
+    <ClCompile Include="source\TSP.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework\Framework.vcxproj">
+      <Project>{cd10eefb-7c3a-4700-bcd6-1fa7e66eb5c4}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\cameras\FreelookCamera.h" />
+    <ClInclude Include="include\cameras\RotateCamera.h" />
+    <ClInclude Include="include\drawables\HUDs\Map.h" />
+    <ClInclude Include="include\drawables\HUDs\ShopHUD.h" />
+    <ClInclude Include="include\drawables\HUDs\VesselBuildHUD.h" />
+    <ClInclude Include="include\drawables\HUDs\VesselHUD.h" />
+    <ClInclude Include="include\drawables\Skybox.h" />
+    <ClInclude Include="include\drawables\HUDs\HUD.h" />
+    <ClInclude Include="include\drawables\Vessels\CarrierVessel.h" />
+    <ClInclude Include="include\drawables\Vessels\DiscoveryVessel.h" />
+    <ClInclude Include="include\drawables\Vessels\FighterVessel.h" />
+    <ClInclude Include="include\drawables\Vessels\SupplyVessel.h" />
+    <ClInclude Include="include\drawables\Vessels\Vessel.h" />
+    <ClInclude Include="include\Empire.h" />
+    <ClInclude Include="include\GalaxyGenerator.h" />
+    <ClInclude Include="include\drawables\Planet.h" />
+    <ClInclude Include="include\hitboxes\HUDHitbox.h" />
+    <ClInclude Include="include\hitboxes\SphereHitbox.h" />
+    <ClInclude Include="include\PlanetRenderer.h" />
+    <ClInclude Include="include\scenes\PlaygroundScene.h" />
+    <ClInclude Include="include\drawables\HUDs\Cursor.h" />
+    <ClInclude Include="include\scenes\TSPScene.h" />
+    <ClInclude Include="include\TSP.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\cursor.frag" />
+    <None Include="resources\shaders\cursor.vert" />
+    <None Include="resources\shaders\example.frag" />
+    <None Include="resources\shaders\example.vert" />
+    <None Include="resources\shaders\line.frag" />
+    <None Include="resources\shaders\line.vert" />
+    <None Include="resources\shaders\planet.frag" />
+    <None Include="resources\shaders\planet.vert" />
+    <None Include="resources\shaders\point.frag" />
+    <None Include="resources\shaders\point.vert" />
+    <None Include="resources\shaders\shader.frag" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\textures\cursor.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+      </ExcludedFromBuild>
+    </Image>
+    <Image Include="resources\textures\cv.jpg" />
+    <Image Include="resources\textures\dv.png" />
+    <Image Include="resources\textures\fv.png" />
+    <Image Include="resources\textures\planet.jpg" />
+    <Image Include="resources\textures\sv.png" />
+    <None Include="resources\shaders\soi.frag" />
+    <None Include="resources\shaders\soi.vert" />
+    <None Include="resources\shaders\text.frag">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+    </None>
+    <None Include="resources\shaders\text.vert">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+    </None>
+    <None Include="resources\shaders\hud.frag" />
+    <None Include="resources\shaders\hud.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\shader.vert">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="resources\models\planet.obj">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\fonts\guardians.ttf">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+    </Font>
+    <Font Include="resources\fonts\roboto.ttf">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="resources\models\cv.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="resources\models\dv.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="resources\models\fv.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="resources\models\plane.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="resources\models\sv.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+    </Object>
+  </ItemGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Link>
+      <LibraryDependencies>freetype;Framework;bcm_host;GLESv2_static;pthread;EGL_static;vchiq_arm;vcos;khrn_static</LibraryDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);/usr/include/freetype2;/opt/vc/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SharedLibrarySearchPath>
+      </SharedLibrarySearchPath>
+      <VerboseOutput>false</VerboseOutput>
+    </Link>
+    <ClCompile>
+      <PreprocessorDefinitions>RASPBERRY;VSBUILDl;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ShowIncludes>false</ShowIncludes>
+      <AdditionalIncludeDirectories>$(SolutionDir)projects\Framework\include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CppLanguageStandard>c++14</CppLanguageStandard>
+      <TreatWarningAsError>false</TreatWarningAsError>
+    </ClCompile>
+    <PreBuildEvent>
+      <AdditionalSourcesToCopyMapping>
+      </AdditionalSourcesToCopyMapping>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <AdditionalSourcesToCopyMapping>
+      </AdditionalSourcesToCopyMapping>
+      <Command>rmdir /Q /S bin</Command>
+    </PostBuildEvent>
+    <RemotePostBuildEvent>
+      <Command>mkdir -p resources &amp;&amp; rsync -r -u "resources" "bin/$(Platform)/$(Configuration)"</Command>
+      <Message>Copy project resouces to build directory</Message>
+    </RemotePostBuildEvent>
+    <RemotePreLinkEvent>
+      <Message>When rebuilding this project, the lib gets removed. This is a work around to still copy it though building twice would also work</Message>
+      <Command>rsync -r -u "../Framework/bin" "."</Command>
+    </RemotePreLinkEvent>
+    <RemotePreBuildEvent>
+      <Command>
+      </Command>
+    </RemotePreBuildEvent>
+    <RemotePreBuildEvent>
+      <Message>
+      </Message>
+    </RemotePreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Link>
+      <LibraryDependencies>freetype;Framework;bcm_host;GLESv2_static;pthread;EGL_static;vchiq_arm;vcos;khrn_static</LibraryDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);/usr/include/freetype2;/opt/vc/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SharedLibrarySearchPath>
+      </SharedLibrarySearchPath>
+      <VerboseOutput>false</VerboseOutput>
+    </Link>
+    <ClCompile>
+      <PreprocessorDefinitions>RASPBERRY;VSBUILDl;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ShowIncludes>false</ShowIncludes>
+      <AdditionalIncludeDirectories>$(SolutionDir)projects\Framework\include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Verbose>false</Verbose>
+      <CppLanguageStandard>c++14</CppLanguageStandard>
+      <TreatWarningAsError>false</TreatWarningAsError>
+    </ClCompile>
+    <PreBuildEvent>
+      <AdditionalSourcesToCopyMapping>
+      </AdditionalSourcesToCopyMapping>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <AdditionalSourcesToCopyMapping>
+      </AdditionalSourcesToCopyMapping>
+      <Command>rmdir /Q /S bin</Command>
+    </PostBuildEvent>
+    <RemotePostBuildEvent>
+      <Command>mkdir -p resources &amp;&amp; rsync -r -u "resources" "bin/$(Platform)/$(Configuration)"</Command>
+      <Message>Copy project resouces to build directory</Message>
+    </RemotePostBuildEvent>
+    <RemotePreLinkEvent>
+      <Message>When rebuilding this project, the lib gets removed. This is a work around to still copy it though building twice would also work</Message>
+      <Command>rsync -r -u "../Framework/bin" "."</Command>
+    </RemotePreLinkEvent>
+    <RemotePreBuildEvent>
+      <Command>
+      </Command>
+    </RemotePreBuildEvent>
+    <RemotePreBuildEvent>
+      <Message>
+      </Message>
+    </RemotePreBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
